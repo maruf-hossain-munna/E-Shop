@@ -1,10 +1,11 @@
 'use client';
 
+import Button from "@/app/components/button/Button";
+import ProductImage from "@/app/components/products/ProductImage";
 import SetColor from "@/app/components/products/SetColor";
 import SetQuantity from "@/app/components/products/SetQuantity";
 import { formatPrice } from "@/app/utils/formatPrice";
 import { Rating } from "@mui/material";
-import Image from "next/image";
 import { useCallback, useState } from "react";
 
 interface ProductDetailsProps {
@@ -59,22 +60,22 @@ const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     // Quantity Button handle
     const handleQuantityIncrease = useCallback(() => {
 
-        if(cartProduct.quantity >= 20){
+        if (cartProduct.quantity >= 20) {
             return;
         }
 
         setCartProduct((prev) => {
-            return { ...prev, quantity: ++prev.quantity};
+            return { ...prev, quantity: prev.quantity + 1 };
         })
     }, [cartProduct])
 
     const handleQuantityDecrease = useCallback(() => {
-        if(cartProduct.quantity <= 1){
+        if (cartProduct.quantity <= 1) {
             return;
         }
 
         setCartProduct((prev) => {
-            return { ...prev, quantity: --prev.quantity}
+            return { ...prev, quantity: prev.quantity - 1 }
         })
     }, [cartProduct]);
 
@@ -82,13 +83,12 @@ const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div> images
-                {/* <Image
-                    src={product.iamges[0].image}
-                    alt={product.name}
-                    fill
-                    className="w-full h-full object-contain"
-                /> */}
+            <div>
+                <ProductImage 
+                    cartProduct={cartProduct}
+                    product={product}
+                    handleColorSelect={handleColorSelect}
+                />
             </div>
 
             <div className="flex flex-col gap-2 text-sm text-slate-500">
@@ -138,7 +138,11 @@ const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 <Horizontal />
 
                 <div>
-                    Add To cart button
+                    <Button
+                        // outline
+                        label="Add To Cart"
+                        onClick={() => { }}
+                    />
                 </div>
             </div>
         </div>
