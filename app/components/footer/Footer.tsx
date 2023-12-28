@@ -11,19 +11,19 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between pt-16 pb-12">
                     <FooterList>
                         <h3 className="text-lg font-semibold mb-2">Shop Categories</h3>
-                        <Link href='#'>Phones</Link>
-                        <Link href='#'>Laptops</Link>
-                        <Link href='#'>Dekstops</Link>
-                        <Link href='#'>TV</Link>
-                        <Link href='#'>Accessories</Link>
+                        <Link href='#' className="hover:underline">Phones</Link>
+                        <Link href='#' className="hover:underline">Laptops</Link>
+                        <Link href='#' className="hover:underline">Dekstops</Link>
+                        <Link href='#' className="hover:underline">TV</Link>
+                        <Link href='#' className="hover:underline">Accessories</Link>
                     </FooterList>
                     <FooterList>
                         <h3 className="text-lg font-semibold mb-2">Customer Services</h3>
-                        <Link href='#'>Contact Us</Link>
-                        <Link href='#'>Shopping Policy</Link>
-                        <Link href='#'>Returns & Exchanges</Link>
-                        <Link href='#'>Watches</Link>
-                        <Link href='#'>FAQs</Link>
+                        <Link href='#' className="hover:underline">Contact Us</Link>
+                        <Link href='#' className="hover:underline">Shopping Policy</Link>
+                        <Link href='#' className="hover:underline">Returns & Exchanges</Link>
+                        <Link href='#' className="hover:underline">Watches</Link>
+                        <Link href='#' className="hover:underline">FAQs</Link>
                     </FooterList>
 
                     <div className="w-full md:w-1/3 mb-6 md:md-0">
