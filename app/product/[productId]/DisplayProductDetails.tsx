@@ -5,6 +5,7 @@ import ProductImage from "@/app/components/products/ProductImage";
 import SetColor from "@/app/components/products/SetColor";
 import SetQuantity from "@/app/components/products/SetQuantity";
 import { formatPrice } from "@/app/utils/formatPrice";
+import { useCart } from "@/hooks/useCart";
 import { Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 
@@ -35,6 +36,8 @@ const Horizontal = () => {
 
 const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
 
+    const {handleAddProductToCart, cartProducts} = useCart();
+
     const [cartProduct, setCartProduct] = useState<CartProductType>({
         name: product.name,
         id: product.id,
@@ -45,6 +48,8 @@ const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         price: product.price,
         quantity: 1
     })
+
+    console.log(cartProducts);
 
     const handleColorSelect = useCallback((value: SelectedImgType) => {
         setCartProduct((prev) => {
@@ -141,7 +146,7 @@ const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                     <Button
                         // outline
                         label="Add To Cart"
-                        onClick={() => { }}
+                        onClick={() => handleAddProductToCart(cartProduct)}
                     />
                 </div>
             </div>
