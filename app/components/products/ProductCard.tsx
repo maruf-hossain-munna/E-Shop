@@ -8,8 +8,10 @@ import { useRouter } from "next/navigation";
 import ImageCarousel from "./ImageCaurosel";
 import Button from "../button/Button";
 import { useCart } from "@/hooks/useCart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CartProductType } from "@/app/product/[productId]/DisplayProductDetails";
+import { MdCheckCircle } from "react-icons/md";
+import Link from "next/link";
 
 
 interface ProductCardProps {
@@ -39,6 +41,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
     });
 
     const { handleAddProductToCart, cartProducts } = useCart();
+    const [isProductInCart, setIsProductInCart] = useState(false);
+
+    useEffect(() => {
+        setIsProductInCart(false);
+        if (cartProducts) {
+            const existingIndex = cartProducts.findIndex((item) => item.id === data.id);
+
+            if (existingIndex > -1) {
+                setIsProductInCart(true)
+            }
+        }
+    }, [cartProducts]);
 
     console.log(cartProducts);
 
@@ -79,14 +93,37 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
                 </div>
 
             </div>
-            <div>
-                <Button
-                    custom="mt-2"
-                    small
-                    label="Add To Cart"
-                    onClick={() => handleAddProductToCart(cartProduct)}
-                />
-            </div>
+            {
+                isProductInCart ?
+                    <div className="mt-4 flex justify-between items-center">
+                        <div className="flex items-center gap-2">
+                            <MdCheckCircle size={20} className="text-teal-400" />
+                            <span className="text-slate-500">Already added</span>
+                        </div>
+                        <div >
+                            <Link href='/cart' className="text-teal-400 cursor-pointer hover:underline">
+                                View Cart
+                            </Link>
+                            {/* <Button
+                                label="View cart"
+                                outline
+                                small
+                                onClick={() => router.push('/cart')}
+                                custom="max-w-[300px] "
+                            /> */}
+
+                        </div>
+                    </div>
+                    :
+                    <div>
+                        <Button
+                            custom="mt-3"
+                            small
+                            label="Add To Cart"
+                            onClick={() => handleAddProductToCart(cartProduct)}
+                        />
+                    </div>
+            }
         </div>
     );
 };

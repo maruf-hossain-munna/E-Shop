@@ -7,7 +7,9 @@ import SetQuantity from "@/app/components/products/SetQuantity";
 import { formatPrice } from "@/app/utils/formatPrice";
 import { useCart } from "@/hooks/useCart";
 import { Rating } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
+import { MdCheckCircle } from "react-icons/md";
 
 interface ProductDetailsProps {
     product: any
@@ -36,7 +38,10 @@ const Horizontal = () => {
 
 const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
 
-    const {handleAddProductToCart, cartProducts} = useCart();
+    const router = useRouter();
+
+    const { handleAddProductToCart, cartProducts } = useCart();
+    const [isProductInCart, setIsProductInCart] = useState(false);
 
     const [cartProduct, setCartProduct] = useState<CartProductType>({
         name: product.name,
@@ -49,7 +54,18 @@ const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         quantity: 1
     })
 
-    console.log(cartProducts);
+    // console.log(cartProducts);
+
+    useEffect(() => {
+        setIsProductInCart(false);
+        if (cartProducts) {
+            const existingIndex = cartProducts.findIndex((item) => item.id === product.id);
+
+            if (existingIndex > -1) {
+                setIsProductInCart(true)
+            }
+        }
+    }, [cartProducts]);
 
     const handleColorSelect = useCallback((value: SelectedImgType) => {
         setCartProduct((prev) => {
@@ -89,7 +105,7 @@ const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-                <ProductImage 
+                <ProductImage
                     cartProduct={cartProduct}
                     product={product}
                     handleColorSelect={handleColorSelect}
@@ -125,30 +141,54 @@ const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 </div>
                 <Horizontal />
 
-                <SetColor
-                    images={product.images}
-                    cartProduct={cartProduct}
-                    handleColorSelect={handleColorSelect}
-                />
-                <Horizontal />
+                {
+                    isProductInCart ?
+                        <>
+                            <div className="flex items-center gap-2 mb-3">
+                                <MdCheckCircle size={20} className="text-teal-400" />
+                                <span className="text-slate-500">Product already added in the cart</span>
+                            </div>
+                            <div>
+                                <Button 
+                                    label="View cart"
+                                    outline
+                                    small
+                                    onClick={() => router.push('/cart')}
+                                    custom="max-w-[300px]"
+                                />
+                            </div>
+                        </>
+                        :
 
-                <div>
-                    <SetQuantity
-                        // cartCounter={}
-                        cartProduct={cartProduct}
-                        handleQuantityIncrease={handleQuantityIncrease}
-                        handleQuantityDecrease={handleQuantityDecrease}
-                    />
-                </div>
-                <Horizontal />
+                        <div>
+                            <SetColor
+                                images={product.images}
+                                cartProduct={cartProduct}
+                                handleColorSelect={handleColorSelect}
+                            />
+                            <Horizontal />
 
-                <div>
-                    <Button
-                        // outline
-                        label="Add To Cart"
-                        onClick={() => handleAddProductToCart(cartProduct)}
-                    />
-                </div>
+                            <div className="py-2">
+                                <SetQuantity
+                                    // cartCounter={}
+                                    cartProduct={cartProduct}
+                                    handleQuantityIncrease={handleQuantityIncrease}
+                                    handleQuantityDecrease={handleQuantityDecrease}
+                                />
+                            </div>
+                            <Horizontal />
+
+                            <div className="mt-4">
+                                <Button
+                                    // outline
+                                    label="Add To Cart"
+                                    onClick={() => handleAddProductToCart(cartProduct)}
+                                />
+                            </div>
+                        </div>
+                }
+
+
             </div>
         </div>
     );
