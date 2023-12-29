@@ -6,6 +6,10 @@ import { Rating } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ImageCarousel from "./ImageCaurosel";
+import Button from "../button/Button";
+import { useCart } from "@/hooks/useCart";
+import { useState } from "react";
+import { CartProductType } from "@/app/product/[productId]/DisplayProductDetails";
 
 
 interface ProductCardProps {
@@ -23,11 +27,28 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
     // Get product rating from reviews
     const productRating = data.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) / data.reviews.length
 
+    const [cartProduct, setCartProduct] = useState<CartProductType>({
+        name: data.name,
+        id: data.id,
+        description: data.description,
+        category: data.category,
+        brand: data.brand,
+        selectedImg: { ...data.images[0] },
+        price: data.price,
+        quantity: 1
+    });
+
+    const { handleAddProductToCart, cartProducts } = useCart();
+
+    console.log(cartProducts);
+
     return (
         <div
-            onClick={() => router.push(`/product/${data.id}`)}
+            // onClick={() => router.push(`/product/${data.id}`)}
             className="col-span-1 border-[1.3px] cursor-pointer border-slate-200 bg-slate-50 rounded p-3 transition hover:scale-105 text-center text-sm">
-            <div className="flex flex-col w-full gap-1">
+            <div
+                onClick={() => router.push(`/product/${data.id}`)}
+                className="flex flex-col w-full gap-1">
                 <div className="aspect-square overflow-hidden relative w-full">
                     {/* Product image Carousel starts */}
 
@@ -56,6 +77,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
                 <div className="text-[16px] mt-1 font-semibold">
                     {formatPrice(data.price)}
                 </div>
+
+            </div>
+            <div>
+                <Button
+                    custom="mt-2"
+                    small
+                    label="Add To Cart"
+                    onClick={() => handleAddProductToCart(cartProduct)}
+                />
             </div>
         </div>
     );
