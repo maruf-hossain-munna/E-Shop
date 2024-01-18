@@ -52,7 +52,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
                 setIsProductInCart(true)
             }
         }
-    }, [cartProducts]);
+    }, [cartProducts, data.id]);
 
     console.log(cartProducts);
 
