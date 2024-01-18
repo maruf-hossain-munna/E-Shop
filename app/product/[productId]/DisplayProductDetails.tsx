@@ -65,13 +65,13 @@ const DisplayProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 setIsProductInCart(true)
             }
         }
-    }, [cartProducts]);
+    }, [cartProducts, product.id]);
 
     const handleColorSelect = useCallback((value: SelectedImgType) => {
         setCartProduct((prev) => {
             return { ...prev, selectedImg: value }
         })
-    }, [cartProduct.selectedImg])
+    }, [])
 
     // console.log(cartProduct);
 
