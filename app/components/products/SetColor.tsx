@@ -3,7 +3,7 @@
 import { CartProductType, SelectedImgType } from "@/app/product/[productId]/DisplayProductDetails";
 
 interface setColorProps {
-    images: SelectedImgType,
+    images: SelectedImgType | any,
     cartProduct: CartProductType,
     handleColorSelect: (value: SelectedImgType) => void
 }
@@ -14,7 +14,7 @@ const SetColor: React.FC<setColorProps> = ({ images, cartProduct, handleColorSel
             <span className="font-semibold">COLOR :  </span>
             <div className="flex gap-1">
                 {
-                    images.map((image) => {
+                    images.map((image : any) => {
                         return (
                             <div 
                                 onClick={() => handleColorSelect(image)}

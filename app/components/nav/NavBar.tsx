@@ -22,7 +22,9 @@ const NavBar = () => {
                             <div>
                                 <CartCount />
                             </div>
-                            <div>UserInfo</div>
+                            <div>
+                                <Link href='/register'>UserInfo</Link>
+                            </div>
                         </div>
                     </div>
                 </Container>

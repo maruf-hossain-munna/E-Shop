@@ -1,8 +1,7 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials";
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
-import { PrismaClient } from "@prisma/client"
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from '@/libs/prismadb';
 import bcrypt from 'bcrypt';
 
@@ -15,10 +14,10 @@ export default NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         }),
         CredentialsProvider({
-            name: "Credentials",
+            name: "credentials",
             credentials: {
-                email: { label: "Email", type: "email" },
-                password: { label: "Password", type: "password" }
+                email: { label: "email", type: "text" },
+                password: { label: "password", type: "password" }
             },
 
             async authorize(credentials) {
@@ -46,7 +45,7 @@ export default NextAuth({
                     throw new Error("Invalid email or password")
                 }
 
-                return user
+                return user;
             }
         })
     ],

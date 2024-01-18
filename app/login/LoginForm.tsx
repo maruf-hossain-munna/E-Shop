@@ -39,7 +39,7 @@ const LoginForm = () => {
                 id="email"
                 label="Email"
                 disabled={isLoading}
-                type="email"
+                type="text"
                 required
                 register={register}
                 errors={errors}
