@@ -25,31 +25,31 @@ const RegisterForm = () => {
         }
     });
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        setIsLoading(true)
+    // const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    //     setIsLoading(true)
 
-        axios.post('/api/register', data).then(() => {
-            toast.success('Account Created')
+    //     axios.post('/api/register', data).then(() => {
+    //         toast.success('Account Created')
 
-            signIn('credentials', {
-                email: data.email,
-                password: data.password,
-                redirect: false,
-            }).then((callback) => {
-                if (callback?.ok) {
-                    router.push('/cart')
-                    router.refresh()
-                    toast.success('Logged in')
-                }
+    //         signIn('credentials', {
+    //             email: data.email,
+    //             password: data.password,
+    //             redirect: false,
+    //         }).then((callback) => {
+    //             if (callback?.ok) {
+    //                 router.push('/cart')
+    //                 router.refresh()
+    //                 toast.success('Logged in')
+    //             }
 
-                if (callback?.error) {
-                    toast.error(callback.error)
-                }
-            })
-        }).catch(() => toast.error("Something went wrong")).finally(() => {
-            setIsLoading(false)
-        })
-    };
+    //             if (callback?.error) {
+    //                 toast.error(callback.error)
+    //             }
+    //         })
+    //     }).catch(() => toast.error("Something went wrong")).finally(() => {
+    //         setIsLoading(false)
+    //     })
+    // };
 
     return (
         <>
@@ -95,7 +95,7 @@ const RegisterForm = () => {
 
             <Button
                 label={isLoading ? 'Loading...' : 'Sign Up'}
-                onClick={handleSubmit(onSubmit)}
+                onClick={() =>{}}
             />
             <p className="text-sm">Already have any account?  <Link href='/login' className="underline">Log in</Link>
             </p>

@@ -1,38 +1,12 @@
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 
-// code of charloo
-declare global {
-    var prisma: PrismaClient | undefined
-}
-
-const client = globalThis.prisma || new PrismaClient();
-
-if (process.env.NODE_ENV !== 'production') globalThis.prisma = client;
-
-export default client;
-
-
-
-
-
-// code of random public just testing my result
-// let prisma: PrismaClient;
+// // code of charloo
 // declare global {
-//     namespace NodeJS {
-//         interface Global {
-//             prisma: PrismaClient;
-//         }
-//     }
-// };
-
-// if (process.env.NODE_ENV !== 'production') {
-//     prisma = new PrismaClient();
-// }
-// else {
-//     if (!global.prisma){
-//         global.prisma = new PrismaClient
-//     };
-//     prisma = global.prisma;
+//     var prisma: PrismaClient | undefined
 // }
 
-// export default prisma;
+// const client = globalThis.prisma || new PrismaClient();
+
+// if (process.env.NODE_ENV !== 'production') globalThis.prisma = client;
+
+// export default client;
