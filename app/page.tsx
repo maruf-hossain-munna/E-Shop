@@ -13,7 +13,7 @@ export default function Home() {
           <OfferDetails />
         </div>
 
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 gap-y-12'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-12'>
           {products.map((product: any) => {
             return <ProductCard data={product} key={product.id} />
           })}
