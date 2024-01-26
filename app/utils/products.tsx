@@ -11,14 +11,12 @@ export const products = [
         {
           color: "White",
           colorCode: "#FFFFFF",
-          image:
-            "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2F1694245643713-iphone14-white.png?alt=media&token=2486cd23-8aa9-449e-8563-8c8a3278d0b4",
+          image: "/images/iphone14-white.png",
         },
         {
           color: "Gray",
           colorCode: "#808080",
-          image:
-            "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2F1694245647731-iphone14-gray.png?alt=media&token=ba0019e0-a6cb-4da7-b214-6252bf57f7e3",
+          image: "/images/iphone14-black.jpg",
         },
       ],
       reviews: [],
@@ -64,6 +62,7 @@ export const products = [
         },
       ],
     },
+
     {
       id: "648437b38c44d52b9542e340",
       name: "Apple iPhone 12, 64GB",
@@ -137,6 +136,8 @@ export const products = [
         },
       ],
     },
+
+
     {
       id: "64a4e9e77e7299078334019f",
       name: "Logitech MX Master 2S Wireless Mouse – Use on Any Surface, Hyper-Fast Scrolling, Ergonomic Shape, Rechargeable, Control Upto 3 Apple Mac and Windows Computers, Graphite",
@@ -159,7 +160,7 @@ export const products = [
     },
     {
       id: "649d775128b6744f0f497040",
-      name: 'Smart Watch(Answer/Make Call), 1.85" Smartwatch for Men Women IP68 Waterproof, 100+ Sport Modes, Fitness Activity Tracker, Heart Rate Sleep Monitor, Pedometer, Smart Watches for Android iOS, 2023',
+      name: 'Smart Watch',
       description:
         'Bluetooth Call and Message Reminder: The smart watch is equipped with HD speaker, after connecting to your phone via Bluetooth, you can directly use the smartwatches to answer or make calls, read messages, store contacts, view call history. The smartwatch can set up more message notifications in "GloryFit" APP. You will never miss any calls and messages during meetings, workout and riding.',
       price: 50,
@@ -181,5 +182,216 @@ export const products = [
         },
       ],
       reviews: [],
+    },
+
+    {
+      id: "648437b38c44d52b9542e560",
+      name: "IPhone 15 Pro Max",
+      description:
+        'The product is refurbished, fully functional, and in excellent condition. Backed by the 90-day E~Shop Renewed Guarantee.\n- This pre-owned product has been professionally inspected, tested and cleaned by Amazon qualified vendors. It is not certified by Apple.\n- This product is in "Excellent condition". The screen and body show no signs of cosmetic damage visible from 12 inches away.\n- This product will have a battery that exceeds 80% capacity relative to new.\n- Accessories may not be original, but will be compatible and fully functional. Product may come in generic box.\n- Product will come with a SIM removal tool, a charger and a charging cable. Headphone and SIM card are not included.\n- This product is eligible for a replacement or refund within 90-day of receipt if it does not work as expected.\n- Refurbished phones are not guaranteed to be waterproof.',
+      price: 1450,
+      brand: "Apple",
+      category: "Phone",
+      inStock: true,
+      images: [
+        {
+          color: "Black",
+          colorCode: "#000000",
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2Fiphone%2012%20black.png?alt=media&token=8fe19551-173a-4550-9d02-20afffc79b12",
+        },
+        {
+          color: "Blue",
+          colorCode: " #0000FF",
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2Fiphone%2012%20blue.png?alt=media&token=ede757d2-b631-4451-b80c-123861f16c92",
+        },
+        {
+          color: "Red",
+          colorCode: "#FF0000",
+          image:
+            "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2Fiphone%2012%20red.png?alt=media&token=945e1ffb-953e-467a-8325-5a8fbbbf3153",
+        },
+      ],
+      reviews: [
+        {
+          id: "6499b4887402b0394d8f3",
+          userId: "6499b184b0e9a8709821d3",
+          productId: "648437b38c44d52b9542e560",
+          rating: 4,
+          comment:
+            "good enough. I like the camera and casing. the delivery was fast too.",
+          createdDate: "2023-06-26T15:53:44.483Z",
+          user: {
+            id: "6499b184b0e9a8c8709821d3",
+            name: "Chaoo",
+            email: "example1@gmail.com",
+            emailVerified: null,
+            image:
+              "https://lh3.googleusercontent.com/a/AAcHTtcuRLwWi1vPKaQOcJlUurlhRAIIq2LgYccE8p32=s96-c",
+            hashedPassword: null,
+            createdAt: "2023-06-26T15:40:52.558Z",
+            updatedAt: "2023-06-26T15:40:52.558Z",
+            role: "USER",
+          },
+        },
+        {
+          id: "6499a110efe4e4de457edc",
+          userId: "6475af156bad49156e6e1e",
+          productId: "648437b38c44d52b9542e560",
+          rating: 5,
+          comment: "I really liked it!!",
+          createdDate: "2023-06-26T14:30:40.998Z",
+          user: {
+            id: "6475af156bad4917456e6e1e",
+            name: "Charles",
+            email: "example@gmail.com",
+            emailVerified: null,
+            image:
+              "https://lh3.googleusercontent.com/a/AAcHTteOiCtILLBWiAoolIW9PJH-r5825pBDl824_8LD=s96-c",
+            hashedPassword: null,
+            createdAt: "2023-05-30T08:08:53.979Z",
+            updatedAt: "2023-05-30T08:08:53.979Z",
+            role: "ADMIN",
+          },
+        },
+      ],
+    },
+
+    
+    {
+      id: "648437b38c44d52b9542e",
+      name: "HP Pavilion 13.3 FHD, Intel Core i3, 8GB RAM, 128GB",
+      description:
+        'The product is refurbished, fully functional, and in excellent condition. Backed by the 90-day E~Shop Renewed Guarantee.\n- This pre-owned product has been professionally inspected, tested and cleaned by Amazon qualified vendors. It is not certified by Apple.\n- This product is in "Excellent condition". The screen and body show no signs of cosmetic damage visible from 12 inches away.\n- This product will have a battery that exceeds 80% capacity relative to new.\n- Accessories may not be original, but will be compatible and fully functional. Product may come in generic box.\n- Product will come with a SIM removal tool, a charger and a charging cable. Headphone and SIM card are not included.\n- This product is eligible for a replacement or refund within 90-day of receipt if it does not work as expected.\n- Refurbished phones are not guaranteed to be waterproof.',
+      price: 2150,
+      brand: "HP",
+      category: "Laptop",
+      inStock: true,
+      images: [
+        {
+          color: "white",
+          colorCode: "#FFFFFF",
+          image:
+            "/images/hp-white.jpeg",
+        },
+        {
+          color: "black",
+          colorCode: " #000000",
+          image: "/images/hp-black.jpg",
+        }
+        
+      ],
+      reviews: [
+        {
+          id: "6499b4887402b0394d8f3",
+          userId: "6499b184b0e9a8709821d3",
+          productId: "648437b38c44d52b9542e",
+          rating: 4,
+          comment:
+            "good enough. I like the camera and casing. the delivery was fast too.",
+          createdDate: "2023-06-26T15:53:44.483Z",
+          user: {
+            id: "6499b184b0e9a8c8709821d3",
+            name: "Chaoo",
+            email: "example1@gmail.com",
+            emailVerified: null,
+            image:
+              "https://lh3.googleusercontent.com/a/AAcHTtcuRLwWi1vPKaQOcJlUurlhRAIIq2LgYccE8p32=s96-c",
+            hashedPassword: null,
+            createdAt: "2023-06-26T15:40:52.558Z",
+            updatedAt: "2023-06-26T15:40:52.558Z",
+            role: "USER",
+          },
+        },
+        {
+          id: "6499a110efe4e4de457edc",
+          userId: "6475af156bad49156e6e1e",
+          productId: "648437b38c44d52b9542e",
+          rating: 5,
+          comment: "I really liked it!!",
+          createdDate: "2023-06-26T14:30:40.998Z",
+          user: {
+            id: "6475af156bad4917456e6e1e",
+            name: "Charles",
+            email: "example@gmail.com",
+            emailVerified: null,
+            image:
+              "https://lh3.googleusercontent.com/a/AAcHTteOiCtILLBWiAoolIW9PJH-r5825pBDl824_8LD=s96-c",
+            hashedPassword: null,
+            createdAt: "2023-05-30T08:08:53.979Z",
+            updatedAt: "2023-05-30T08:08:53.979Z",
+            role: "ADMIN",
+          },
+        },
+      ],
+    },
+
+    {
+      id: "648437b38c44d52b9542e",
+      name: "Dell Inspiron 15-3580 Intel Celeron 4205U Processor 4 GB RAM 500GB HDD Intel UHD 610 Graphics",
+      description:
+        'The product is refurbished, fully functional, and in excellent condition. Backed by the 90-day E~Shop Renewed Guarantee.\n- This pre-owned product has been professionally inspected, tested and cleaned by Amazon qualified vendors. It is not certified by Apple.\n- This product is in "Excellent condition". The screen and body show no signs of cosmetic damage visible from 12 inches away.\n- This product will have a battery that exceeds 80% capacity relative to new.\n- Accessories may not be original, but will be compatible and fully functional. Product may come in generic box.\n- Product will come with a SIM removal tool, a charger and a charging cable. Headphone and SIM card are not included.\n- This product is eligible for a replacement or refund within 90-day of receipt if it does not work as expected.\n- Refurbished phones are not guaranteed to be waterproof.',
+      price: 2750,
+      brand: "Dell",
+      category: "Laptop",
+      inStock: true,
+      images: [
+        {
+          color: "white",
+          colorCode: "#FFFFFF",
+          image:
+            "/images/dell-white.jpg",
+        },
+        {
+          color: "black",
+          colorCode: " #000000",
+          image: "/images/dell-black.jpg",
+        }
+        
+      ],
+      reviews: [
+        {
+          id: "6499b4887402b0394d8f3",
+          userId: "6499b184b0e9a8709821d3",
+          productId: "648437b38c44d52b9542e",
+          rating: 4,
+          comment:
+            "good enough. I like the camera and casing. the delivery was fast too.",
+          createdDate: "2023-06-26T15:53:44.483Z",
+          user: {
+            id: "6499b184b0e9a8c8709821d3",
+            name: "Chaoo",
+            email: "example1@gmail.com",
+            emailVerified: null,
+            image:
+              "https://lh3.googleusercontent.com/a/AAcHTtcuRLwWi1vPKaQOcJlUurlhRAIIq2LgYccE8p32=s96-c",
+            hashedPassword: null,
+            createdAt: "2023-06-26T15:40:52.558Z",
+            updatedAt: "2023-06-26T15:40:52.558Z",
+            role: "USER",
+          },
+        },
+        {
+          id: "6499a110efe4e4de457edc",
+          userId: "6475af156bad49156e6e1e",
+          productId: "648437b38c44d52b9542e",
+          rating: 5,
+          comment: "I really liked it!!",
+          createdDate: "2023-06-26T14:30:40.998Z",
+          user: {
+            id: "6475af156bad4917456e6e1e",
+            name: "Charles",
+            email: "example@gmail.com",
+            emailVerified: null,
+            image:
+              "https://lh3.googleusercontent.com/a/AAcHTteOiCtILLBWiAoolIW9PJH-r5825pBDl824_8LD=s96-c",
+            hashedPassword: null,
+            createdAt: "2023-05-30T08:08:53.979Z",
+            updatedAt: "2023-05-30T08:08:53.979Z",
+            role: "ADMIN",
+          },
+        },
+      ],
     },
   ];
