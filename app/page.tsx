@@ -1,7 +1,9 @@
+import Contact from './components/contact/Contact'
 import Container from './components/container/Container'
 import HomeBanner from './components/homeBanner/HomeBanner'
 import OfferDetails from './components/homeBanner/OfferDetails'
 import ProductCard from './components/products/ProductCard'
+import WatchProduct from './components/watchProduct/WatchProduct'
 import { products } from './utils/products'
 
 export default function Home() {
@@ -18,6 +20,9 @@ export default function Home() {
             return <ProductCard data={product} key={product.id} />
           })}
         </div>
+
+        <WatchProduct />
+        <Contact />
       </Container>
     </div>
   )
